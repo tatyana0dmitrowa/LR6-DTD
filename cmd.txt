@@ -1,0 +1,10 @@
+создание образа
+docker build -t d_img:latest .
+запуск контейнера
+docker run -d -p 5432:5432 --name d_cont d_img:latest
+создание тома
+docker volume create "имя"
+команда для создания docker-контейнера с томом (volume) на основе docker-образа
+VOLUME /d_data:/var/lib/postgresql/data
+команда для запуска контейнера с интерфейсом psql для внесения новых данных в БД
+docker exec -it d_cont psql -d -U usr dbn
